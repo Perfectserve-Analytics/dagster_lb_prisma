@@ -1,4 +1,4 @@
 locations:
 - code_source:
-    package_name: quickstart_etl
-  location_name: prisma_LB_data_share
+    package_name: prisma_lb
+  location_name: dagster_lb_prisma

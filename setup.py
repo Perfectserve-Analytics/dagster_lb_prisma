@@ -1,11 +1,14 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="quickstart_etl",
-    packages=find_packages(exclude=["quickstart_etl_tests"]),
+    name="prisma_lb",
+    packages=find_packages(exclude=["prisma_lb_tests"]),
     install_requires=[
         "dagster",
         "dagster-cloud",
+        "dagster-dbt",
+        "dagster-snowflake",
+        "dbt-core",
         "boto3",
         "pandas",
         "matplotlib",

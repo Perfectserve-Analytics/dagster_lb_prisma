@@ -1,0 +1,15 @@
+lb_prisma:
+  target: prod
+  outputs:
+    prod:
+      type: snowflake
+      account: zta29094.us-east-1
+
+      user: PC_DBT_USER
+      password: $uH8_I0u
+
+      warehouse: DBT_LB_WH
+      role: accountadmin
+      database: METADATA
+      schema: PUBLIC
+      threads: 16

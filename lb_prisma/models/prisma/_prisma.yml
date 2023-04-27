@@ -1,0 +1,651 @@
+version: 2
+
+models:
+  - name: prisma_additionaldetailscolumndata
+    config:
+      unique_key: id
+      alias: additionaldetailscolumndata
+  - name: prisma_additionaldetailsconfig
+    config:
+      unique_key: id
+      alias: additionaldetailsconfig
+  - name: prisma_additionaldetailsdata
+    config:
+      unique_key: id
+      alias: additionaldetailsdata
+  - name: prisma_admin_logs
+    config:
+      unique_key: id
+      alias: admin_logs
+  - name: prisma_assigngroup
+    config:
+      unique_key: id
+      alias: assigngroup
+  - name: prisma_assignmentcategories
+    config:
+      unique_key: id
+      alias: assignmentcategories
+  - name: prisma_assignmentdetails
+    config:
+      unique_key: assignid
+      alias: assignmentdetails
+  - name: prisma_assignmentlist
+    config:
+      unique_key: id
+      alias: assignmentlist
+  - name: prisma_assignments
+    config:
+      unique_key: id
+      alias: assignments
+  - name: prisma_assignmentsincontexts
+    config:
+      unique_key: id
+      alias: assignmentsincontexts
+  - name: prisma_assignmentstructure
+    config:
+      unique_key: id
+      alias: assignmentstructure
+  - name: prisma_assignmentstructuretimedef
+    config:
+      unique_key: id
+      alias: assignmentstructuretimedef
+  - name: prisma_assignmentstructuretimedefoncedates
+    config:
+      unique_key: id
+      alias: assignmentstructuretimedefoncedates
+  - name: prisma_assignmenttypes
+    config:
+      unique_key: id
+      alias: assignmenttypes
+  - name: prisma_assignsforprefs
+    config:
+      unique_key: id
+      alias: assignsforprefs
+  - name: prisma_batches
+    config:
+      unique_key: id
+      alias: batches
+  - name: prisma_batchtoassignmentmapping
+    config:
+      unique_key: id
+      alias: batchtoassignmentmapping
+  - name: prisma_batchtodemandtargetmapping
+    config:
+      unique_key: id
+      alias: batchtodemandtargetmapping
+  - name: prisma_batchtopersonnelmapping
+    config:
+      unique_key: id
+      alias: batchtopersonnelmapping
+  - name: prisma_batchtorulemapping
+    config:
+      unique_key: id
+      alias: batchtorulemapping
+  - name: prisma_batchtotalliesmapping
+    config:
+      unique_key: id
+      alias: batchtotalliesmapping
+  - name: prisma_billing_groups
+    config:
+      unique_key: id
+      alias: billing_groups
+  - name: prisma_billing_licenses
+    config:
+      unique_key: id
+      alias: billing_licenses
+  - name: prisma_billing_licenses_external_ids
+    config:
+      unique_key: ['billing_license_id', 'external_id']
+      alias: billing_licenses_external_ids
+  - name: prisma_cachedtallycounts
+    config:
+      unique_key: enddate
+      alias: cachedtallycounts
+  - name: prisma_clientdata
+    config:
+      unique_key: id
+      alias: clientdata
+  - name: prisma_condactions
+    config:
+      unique_key: id
+      alias: condactions
+  - name: prisma_costcenter
+    config:
+      unique_key: id
+      alias: costcenter
+  - name: prisma_datesforcontexts
+    config:
+      unique_key: contextid
+      alias: datesforcontexts
+  - name: prisma_datesforholidays
+    config:
+      unique_key: id
+      alias: datesforholidays
+  - name: prisma_demand_profiles
+    config:
+      unique_key: id
+      alias: demand_profiles
+  - name: prisma_demand_profiles_assignments
+    config:
+      unique_key: profile_id
+      alias: demand_profiles_assignments
+  - name: prisma_demand_profiles_empscheduled
+    config:
+      unique_key: slot_date
+      alias: demand_profiles_empscheduled
+  - name: prisma_demand_profiles_personnel
+    config:
+      unique_key: profile_id
+      alias: demand_profiles_personnel
+  - name: prisma_demand_profiles_profile_items
+    config:
+      unique_key: profile_item_id
+      alias: demand_profiles_profile_items
+  - name: prisma_demand_profiles_transactions
+    config:
+      unique_key: id
+      alias: demand_profiles_transactions
+  - name: prisma_demand_profiles_transactions_changes
+    config:
+      unique_key: id
+      alias: demand_profiles_transactions_changes
+  - name: prisma_demand_profile_items
+    config:
+      unique_key: id
+      alias: demand_profile_items
+  - name: prisma_demand_target_definitions
+    config:
+      unique_key: id
+      alias: demand_target_definitions
+  - name: prisma_demand_target_definitions_assignments
+    config:
+      unique_key: assignment_id
+      alias: demand_target_definitions_assignments
+  - name: prisma_demand_target_definitions_personnel
+    config:
+      unique_key: target_definition_id
+      alias: demand_target_definitions_personnel
+  - name: prisma_demand_target_definitions_priorities
+    config:
+      unique_key: template_id
+      alias: demand_target_definitions_priorities
+  - name: prisma_demand_target_definitions_profile_items
+    config:
+      unique_key: profile_item_id
+      alias: demand_target_definitions_profile_items
+  - name: prisma_demand_target_definitions_projections
+    config:
+      unique_key: target_definition_id
+      alias: demand_target_definitions_projections
+  - name: prisma_denialreasonassignmenttypes
+    config:
+      unique_key: id
+      alias: denialreasonassignmenttypes
+  - name: prisma_denialreasons
+    config:
+      unique_key: id
+      alias: denialreasons
+  - name: prisma_department
+    config:
+      unique_key: deptid
+      alias: department
+  - name: prisma_dtproperties
+    config:
+      unique_key: property
+      alias: dtproperties
+  - name: prisma_emprequest
+    config:
+      unique_key: id
+      alias: emprequest
+  - name: prisma_emprequesttarget
+    config:
+      unique_key: assignstructureid
+      alias: emprequesttarget
+  - name: prisma_emprequestwindow
+    config:
+      unique_key: id
+      alias: emprequestwindow
+  - name: prisma_empscheduled
+    config:
+      unique_key: id
+      alias: empscheduled
+  - name: prisma_exclusivity
+    config:
+      unique_key: id
+      alias: exclusivity
+  - name: prisma_exclusivityexceptions
+    config:
+      unique_key: id
+      alias: exclusivityexceptions
+  - name: prisma_features
+    config:
+      unique_key: id
+      alias: features
+  - name: prisma_fivetran_audit
+    config:
+      unique_key: id
+      alias: fivetran_audit
+  - name: prisma_flyway_schema_history
+    config:
+      unique_key: installed_rank
+      alias: flyway_schema_history
+  - name: prisma_groupedassignment
+    config:
+      unique_key: ['assignid', 'assigngroupid']
+      alias: groupedassignment
+  - name: prisma_groups
+    config:
+      unique_key: id
+      alias: groups
+  - name: prisma_groupstopersonnel
+    config:
+      unique_key: ['empid', 'groupid']
+      alias: groupstopersonnel
+  - name: prisma_groupstoroles
+    config:
+      unique_key: groupid
+      alias: groupstoroles
+  - name: prisma_hashedassignmentgroups
+    config:
+      unique_key: id
+      alias: hashedassignmentgroups
+  - name: prisma_holidays
+    config:
+      unique_key: id
+      alias: holidays
+  - name: prisma_lbliteannouncements
+    config:
+      unique_key: id
+      alias: lbliteannouncements
+  - name: prisma_lblitefilterassignments
+    config:
+      unique_key: id
+      alias: lblitefilterassignments
+  - name: prisma_lblitefilterdepartments
+    config:
+      unique_key: id
+      alias: lblitefilterdepartments
+  - name: prisma_lblitefilterpersonnel
+    config:
+      unique_key: id
+      alias: lblitefilterpersonnel
+  - name: prisma_lblitefilters
+    config:
+      unique_key: id
+      alias: lblitefilters
+  - name: prisma_lblitefiltertemplates
+    config:
+      unique_key: id
+      alias: lblitefiltertemplates
+  - name: prisma_lblitesettings
+    config:
+      unique_key: id
+      alias: lblitesettings
+  - name: prisma_lblitethemes
+    config:
+      unique_key: id
+      alias: lblitethemes
+  - name: prisma_lbliteviewassociations
+    config:
+      unique_key: id
+      alias: lbliteviewassociations
+  - name: prisma_lbliteviews
+    config:
+      unique_key: id
+      alias: lbliteviews
+  - name: prisma_lblite_filter_demand
+    config:
+      unique_key: id
+      alias: lblite_filter_demand
+  - name: prisma_lblite_filter_tallies
+    config:
+      unique_key: id
+      alias: lblite_filter_tallies
+  - name: prisma_lblite_meta_attribute
+    config:
+      unique_key: id
+      alias: lblite_meta_attribute
+  - name: prisma_lblite_meta_attribute_value
+    config:
+      unique_key: id
+      alias: lblite_meta_attribute_value
+  - name: prisma_lblite_meta_entity
+    config:
+      unique_key: id
+      alias: lblite_meta_entity
+  - name: prisma_lblite_reports
+    config:
+      unique_key: id
+      alias: lblite_reports
+  - name: prisma_loareasonassignmenttypes
+    config:
+      unique_key: id
+      alias: loareasonassignmenttypes
+  - name: prisma_loareasons
+    config:
+      unique_key: id
+      alias: loareasons
+  - name: prisma_locations
+    config:
+      unique_key: id
+      alias: locations
+  - name: prisma_locationsassociation
+    config:
+      unique_key: id
+      alias: locationsassociation
+  - name: prisma_locationsassociationxml
+    config:
+      unique_key: id
+      alias: locationsassociationxml
+  - name: prisma_locationsselection
+    config:
+      unique_key: id
+      alias: locationsselection
+  - name: prisma_mappedassignments
+    config:
+      unique_key: assmapid
+      alias: mappedassignments
+  - name: prisma_mappedassignmentstructures
+    config:
+      unique_key: id
+      alias: mappedassignmentstructures
+  - name: prisma_mappedtemplates
+    config:
+      unique_key: mapid
+      alias: mappedtemplates
+  - name: prisma_mipparameters
+    config:
+      unique_key: id
+      alias: mipparameters
+  - name: prisma_miprules
+    config:
+      unique_key: id
+      alias: miprules
+  - name: prisma_miprulesegments
+    config:
+      unique_key: id
+      alias: miprulesegments
+  - name: prisma_mydept
+    config:
+      unique_key: id
+      alias: mydept
+  - name: prisma_notification_assignment_exclusions
+    config:
+      unique_key: id
+      alias: notification_assignment_exclusions
+  - name: prisma_notification_locations
+    config:
+      unique_key: id
+      alias: notification_locations
+  - name: prisma_numbers
+    config:
+      unique_key: number
+      alias: numbers
+  - name: prisma_parameters
+    config:
+      unique_key: ['deptid', 'name']
+      alias: parameters
+  - name: prisma_pendingslotdata
+    config:
+      unique_key: id
+      alias: pendingslotdata
+  - name: prisma_personaactions
+    config:
+      unique_key: id
+      alias: personaactions
+  - name: prisma_personaanalyticsdept
+    config:
+      unique_key: dept_id
+      alias: personaanalyticsdept
+  - name: prisma_personadepartmentlevels
+    config:
+      unique_key: id
+      alias: personadepartmentlevels
+  - name: prisma_personadepartments
+    config:
+      unique_key: id
+      alias: personadepartments
+  - name: prisma_personaelementintersectionassignments
+    config:
+      unique_key: id
+      alias: personaelementintersectionassignments
+  - name: prisma_personaelementintersectionpersonnel
+    config:
+      unique_key: id
+      alias: personaelementintersectionpersonnel
+  - name: prisma_personaelementintersections
+    config:
+      unique_key: id
+      alias: personaelementintersections
+  - name: prisma_personaelements
+    config:
+      unique_key: id
+      alias: personaelements
+  - name: prisma_personalviewfilterassignments
+    config:
+      unique_key: ['personalviewfilterid', 'excludedassignmentname']
+      alias: personalviewfilterassignments
+  - name: prisma_personalviewfilterpersonnel
+    config:
+      unique_key: ['personalviewfilterid', 'excludedpersonnelid']
+      alias: personalviewfilterpersonnel
+  - name: prisma_personalviewfilters
+    config:
+      unique_key: personalviewfilterid
+      alias: personalviewfilters
+  - name: prisma_personareports
+    config:
+      unique_key: ['persona_id', 'report_id']
+      alias: personareports
+  - name: prisma_personas
+    config:
+      unique_key: id
+      alias: personas
+  - name: prisma_personatemplatelevels
+    config:
+      unique_key: id
+      alias: personatemplatelevels
+  - name: prisma_personatemplates
+    config:
+      unique_key: id
+      alias: personatemplates
+  - name: prisma_persona_administration_dept
+    config:
+      unique_key: dept_id
+      alias: persona_administration_dept
+  - name: prisma_persona_locator_reports
+    config:
+      unique_key: persona_id
+      alias: persona_locator_reports
+  - name: prisma_personnel
+    config:
+      unique_key: id
+      alias: personnel
+  - name: prisma_personnellist
+    config:
+      unique_key: id
+      alias: personnellist
+  - name: prisma_personneltypes
+    config:
+      unique_key: id
+      alias: personneltypes
+  - name: prisma_personnel_pick_orders
+    config:
+      unique_key: id
+      alias: personnel_pick_orders
+  - name: prisma_policy
+    config:
+      unique_key: id
+      alias: policy
+  - name: prisma_preference
+    config:
+      unique_key: id
+      alias: preference
+  - name: prisma_preswapdata
+    config:
+      unique_key: id
+      alias: preswapdata
+  - name: prisma_prioritylevel
+    config:
+      unique_key: id
+      alias: prioritylevel
+  - name: prisma_professions
+    config:
+      unique_key: profession
+      alias: professions
+  - name: prisma_reportpersonnellist
+    config:
+      unique_key: ['empid', 'reportviewid']
+      alias: reportpersonnellist
+  - name: prisma_reporttallylist
+    config:
+      unique_key: tallyid
+      alias: reporttallylist
+  - name: prisma_reportviews
+    config:
+      unique_key: reportviewid
+      alias: reportviews
+  - name: prisma_requirements
+    config:
+      unique_key: id
+      alias: requirements
+  - name: prisma_rolesforpersonnel
+    config:
+      unique_key: ['assignid', 'empid']
+      alias: rolesforpersonnel
+  - name: prisma_rulehistory
+    config:
+      unique_key: id
+      alias: rulehistory
+  - name: prisma_rules
+    config:
+      unique_key: id
+      alias: rules
+  - name: prisma_ruletags
+    config:
+      unique_key: id
+      alias: ruletags
+  - name: prisma_ruletagstorules
+    config:
+      unique_key: ruleid
+      alias: ruletagstorules
+  - name: prisma_saved_locator_reports
+    config:
+      unique_key: id
+      alias: saved_locator_reports
+  - name: prisma_schedcontexts
+    config:
+      unique_key: contextid
+      alias: schedcontexts
+  - name: prisma_schedules
+    config:
+      unique_key: schedid
+      alias: schedules
+  - name: prisma_scheduletypes
+    config:
+      unique_key: name
+      alias: scheduletypes
+  - name: prisma_schedview
+    config:
+      unique_key: schedviewid
+      alias: schedview
+  - name: prisma_schedviewdemandtargets
+    config:
+      unique_key: id
+      alias: schedviewdemandtargets
+  - name: prisma_schedviewtallies
+    config:
+      unique_key: id
+      alias: schedviewtallies
+  - name: prisma_series
+    config:
+      unique_key: id
+      alias: series
+  - name: prisma_seriestable
+    config:
+      unique_key: id
+      alias: seriestable
+  - name: prisma_survey_responses
+    config:
+      unique_key: id
+      alias: survey_responses
+  - name: prisma_switchboard_items
+    config:
+      unique_key: itemnumber
+      alias: switchboard_items
+  - name: prisma_systemparameters
+    config:
+      unique_key: id
+      alias: systemparameters
+  - name: prisma_tallies
+    config:
+      unique_key: id
+      alias: tallies
+  - name: prisma_tallycontribution
+    config:
+      unique_key: id
+      alias: tallycontribution
+  - name: prisma_tallystaffhistory
+    config:
+      unique_key: id
+      alias: tallystaffhistory
+  - name: prisma_tallytarget
+    config:
+      unique_key: id
+      alias: tallytarget
+  - name: prisma_tallytimedef
+    config:
+      unique_key: id
+      alias: tallytimedef
+  - name: prisma_tally_override_by_slot
+    config:
+      unique_key: id
+      alias: tally_override_by_slot
+  - name: prisma_titles
+    config:
+      unique_key: id
+      alias: titles
+  - name: prisma_worktypes
+    config:
+      unique_key: code
+      alias: worktypes
+  - name: prisma_xdeptviews
+    config:
+      unique_key: id
+      alias: xdeptviews
+  - name: prisma_xdeptviewscolumns
+    config:
+      unique_key: id
+      alias: xdeptviewscolumns
+  - name: prisma_xdeptviewscolumnvalues
+    config:
+      unique_key: id
+      alias: xdeptviewscolumnvalues
+  - name: prisma_xruleparameters
+    config:
+      unique_key: id
+      alias: xruleparameters
+  - name: prisma_xrules
+    config:
+      unique_key: id
+      alias: xrules
+  - name: prisma_xrulexmlrules
+    config:
+      unique_key: id
+      alias: xrulexmlrules
+  - name: prisma_yactions
+    config:
+      unique_key: id
+      alias: yactions
+  - name: prisma_yconditionals
+    config:
+      unique_key: id
+      alias: yconditionals
+  - name: prisma_yrules
+    config:
+      unique_key: id
+      alias: yrules
+  - name: prisma_ytriggers
+    config:
+      unique_key: id
+      alias: ytriggers
