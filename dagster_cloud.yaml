@@ -1,4 +1,4 @@
 locations:
-- code_source:
+- location_name: dagster_lb_prisma
+  code_source:
     package_name: prisma_lb
-  location_name: dagster_lb_prisma
