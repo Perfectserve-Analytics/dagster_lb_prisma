@@ -3,13 +3,13 @@ lb_prisma:
   outputs:
     prod:
       type: snowflake
-      account: zta29094.us-east-1
+      account: "{{ env_var('DBT_ACCOUNT') }}"
 
-      user: PC_DBT_USER
-      password: $uH8_I0u
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
 
-      warehouse: DBT_LB_WH
-      role: accountadmin
-      database: METADATA
-      schema: PUBLIC
+      warehouse: "{{ env_var('DBT_LB_WAREHOUSE') }}}"
+      role: "{{ env_var('DBT_ROLE') }}"
+      database: Metadata
+      schema: Public
       threads: 16

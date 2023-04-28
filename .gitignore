@@ -1,6 +1,5 @@
-target/
-logs/
+lb_prisma/target/
+lb_prisma/logs/
 .env
-.idea
 .DS_Store
-./config/.user.yml
+lb_prisma/config/.user.yml
