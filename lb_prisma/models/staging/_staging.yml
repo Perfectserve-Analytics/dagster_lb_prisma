@@ -59,12 +59,14 @@ models:
           - unique
   - name: stg_assignmentlist
     config:
-      unique_key: id
+      unique_key: [id, schedtypename, schedviewid]
       alias: assignmentlist
-    columns:
-      - name: id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - id
+            - schedtypename
+            - schedviewid
   - name: stg_assignments
     config:
       unique_key: id
@@ -187,7 +189,7 @@ models:
           - unique
   - name: stg_billing_licenses_external_ids
     config:
-      unique_key: ['billing_license_id', 'external_id']
+      unique_key: [billing_license_id, external_id]
       alias: billing_licenses_external_ids
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -196,12 +198,16 @@ models:
             - external_id
   - name: stg_cachedtallycounts
     config:
-      unique_key: enddate
+      unique_key: [begindate, tallyid, empid, templatename, enddate]
       alias: cachedtallycounts
-    columns:
-      - name: enddate
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - begindate
+            - tallyid
+            - empid
+            - templatename
+            - enddate
   - name: stg_clientdata
     config:
       unique_key: id
@@ -228,20 +234,22 @@ models:
           - unique
   - name: stg_datesforcontexts
     config:
-      unique_key: contextid
+      unique_key: [contextid, date]
       alias: datesforcontexts
-    columns:
-      - name: contextid
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - contextid
+            - date
   - name: stg_datesforholidays
     config:
-      unique_key: id
+      unique_key: [holidayid, id]
       alias: datesforholidays
-    columns:
-      - name: id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - holidayid
+            - id
   - name: stg_demand_profiles
     config:
       unique_key: id
@@ -252,36 +260,42 @@ models:
           - unique
   - name: stg_demand_profiles_assignments
     config:
-      unique_key: profile_id
+      unique_key: [assignment_id, profile_id]
       alias: demand_profiles_assignments
-    columns:
-      - name: profile_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - assignment_id
+            - profile_id
   - name: stg_demand_profiles_empscheduled
     config:
-      unique_key: slot_date
+      unique_key: [empscheduled_id, slot_date]
       alias: demand_profiles_empscheduled
-    columns:
-      - name: slot_date
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - empscheduled_id
+            - slot_date
   - name: stg_demand_profiles_personnel
     config:
-      unique_key: profile_id
+      unique_key: [personnel_id, profile_id, stack_order]
       alias: demand_profiles_personnel
-    columns:
-      - name: profile_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - personnel_id
+            - profile_id
+            - stack_order
   - name: stg_demand_profiles_profile_items
     config:
-      unique_key: profile_item_id
+      unique_key: [profile_id, profile_item_id, start_time]
       alias: demand_profiles_profile_items
-    columns:
-      - name: profile_item_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - profile_id
+            - profile_item_id
+            - start_time
   - name: stg_demand_profiles_transactions
     config:
       unique_key: id
@@ -316,44 +330,50 @@ models:
           - unique
   - name: stg_demand_target_definitions_assignments
     config:
-      unique_key: assignment_id
+      unique_key: [assignment_id, target_definition_id]
       alias: demand_target_definitions_assignments
-    columns:
-      - name: assignment_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - assignment_id
+            - target_definition_id
   - name: stg_demand_target_definitions_personnel
     config:
-      unique_key: target_definition_id
+      unique_key: [personnel_id, target_definition_id]
       alias: demand_target_definitions_personnel
-    columns:
-      - name: target_definition_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - personnel_id
+            - target_definition_id
   - name: stg_demand_target_definitions_priorities
     config:
-      unique_key: template_id
+      unique_key: [target_definition_id, template_id]
       alias: demand_target_definitions_priorities
-    columns:
-      - name: template_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - target_definition_id
+            - template_id
   - name: stg_demand_target_definitions_profile_items
     config:
-      unique_key: profile_item_id
+      unique_key: [profile_item_id, target_definition_id]
       alias: demand_target_definitions_profile_items
-    columns:
-      - name: profile_item_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - profile_item_id
+            - target_definition_id
   - name: stg_demand_target_definitions_projections
     config:
-      unique_key: target_definition_id
+      unique_key: [target_date, target_definition_id, template_id]
       alias: demand_target_definitions_projections
-    columns:
-      - name: target_definition_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - target_date
+            - target_definition_id
+            - template_id
   - name: stg_denialreasonassignmenttypes
     config:
       unique_key: id
@@ -380,12 +400,13 @@ models:
           - unique
   - name: stg_dtproperties
     config:
-      unique_key: property
+      unique_key: [id, property]
       alias: dtproperties
-    columns:
-      - name: property
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - id
+            - property
   - name: stg_emprequest
     config:
       unique_key: id
@@ -396,12 +417,13 @@ models:
           - unique
   - name: stg_emprequesttarget
     config:
-      unique_key: assignstructureid
+      unique_key: [schedtypename, assignstructureid]
       alias: emprequesttarget
-    columns:
-      - name: assignstructureid
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - schedtypename
+            - assignstructureid
   - name: stg_emprequestwindow
     config:
       unique_key: id
@@ -420,12 +442,13 @@ models:
           - unique
   - name: stg_exclusivity
     config:
-      unique_key: id
+      unique_key: [assignid_A, assignid_B]
       alias: exclusivity
-    columns:
-      - name: id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - assignid_A
+            - assignid_B
   - name: stg_exclusivityexceptions
     config:
       unique_key: id
@@ -460,13 +483,13 @@ models:
           - unique
   - name: stg_groupedassignment
     config:
-      unique_key: ['assignid', 'assigngroupid']
+      unique_key: [assigngroupid, assignid]
       alias: groupedassignment
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - assignid
             - assigngroupid
+            - assignid
   - name: stg_groups
     config:
       unique_key: id
@@ -477,7 +500,7 @@ models:
           - unique
   - name: stg_groupstopersonnel
     config:
-      unique_key: ['empid', 'groupid']
+      unique_key: [empid, groupid]
       alias: groupstopersonnel
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -486,12 +509,13 @@ models:
             - groupid
   - name: stg_groupstoroles
     config:
-      unique_key: groupid
+      unique_key: [groupid, assignid]
       alias: groupstoroles
-    columns:
-      - name: groupid
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - groupid
+            - assignid
   - name: stg_hashedassignmentgroups
     config:
       unique_key: id
@@ -766,12 +790,12 @@ models:
           - unique
   - name: stg_parameters
     config:
-      unique_key: ['deptid', 'name']
+      unique_key: [department, name]
       alias: parameters
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - deptid
+            - department
             - name
   - name: stg_pendingslotdata
     config:
@@ -791,12 +815,13 @@ models:
           - unique
   - name: stg_personaanalyticsdept
     config:
-      unique_key: dept_id
+      unique_key: [dept_id, persona_id]
       alias: personaanalyticsdept
-    columns:
-      - name: dept_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - dept_id
+            - persona_id
   - name: stg_personadepartmentlevels
     config:
       unique_key: id
@@ -847,22 +872,22 @@ models:
           - unique
   - name: stg_personalviewfilterassignments
     config:
-      unique_key: ['personalviewfilterid', 'excludedassignmentname']
+      unique_key: [excludedassignmentname, personalviewfilterid]
       alias: personalviewfilterassignments
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - personalviewfilterid
             - excludedassignmentname
+            - personalviewfilterid
   - name: stg_personalviewfilterpersonnel
     config:
-      unique_key: ['personalviewfilterid', 'excludedpersonnelid']
+      unique_key: [excludedpersonnelid, personalviewfilterid]
       alias: personalviewfilterpersonnel
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - personalviewfilterid
             - excludedpersonnelid
+            - personalviewfilterid
   - name: stg_personalviewfilters
     config:
       unique_key: personalviewfilterid
@@ -873,7 +898,7 @@ models:
           - unique
   - name: stg_personareports
     config:
-      unique_key: ['persona_id', 'report_id']
+      unique_key: [persona_id, report_id]
       alias: personareports
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -906,20 +931,22 @@ models:
           - unique
   - name: stg_persona_administration_dept
     config:
-      unique_key: dept_id
+      unique_key: [persona_id, dept_id]
       alias: persona_administration_dept
-    columns:
-      - name: dept_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - persona_id
+            - dept_id
   - name: stg_persona_locator_reports
     config:
-      unique_key: persona_id
+      unique_key: [locator_report_id, persona_id]
       alias: persona_locator_reports
-    columns:
-      - name: persona_id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - locator_report_id
+            - persona_id
   - name: stg_personnel
     config:
       unique_key: id
@@ -930,12 +957,14 @@ models:
           - unique
   - name: stg_personnellist
     config:
-      unique_key: id
+      unique_key: [id, schedtypename, schedviewid]
       alias: personnellist
-    columns:
-      - name: id
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - id
+            - schedtypename
+            - schedviewid
   - name: stg_personneltypes
     config:
       unique_key: id
@@ -994,21 +1023,24 @@ models:
           - unique
   - name: stg_reportpersonnellist
     config:
-      unique_key: ['empid', 'reportviewid']
+      unique_key: [empid, reportviewid, schedtypename]
       alias: reportpersonnellist
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - empid
             - reportviewid
+            - schedtypename
   - name: stg_reporttallylist
     config:
-      unique_key: tallyid
+      unique_key: [reportviewid, schedtypename, tallyid]
       alias: reporttallylist
-    columns:
-      - name: tallyid
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - reportviewid
+            - schedtypename
+            - tallyid
   - name: stg_reportviews
     config:
       unique_key: reportviewid
@@ -1027,7 +1059,7 @@ models:
           - unique
   - name: stg_rolesforpersonnel
     config:
-      unique_key: ['assignid', 'empid']
+      unique_key: [assignid, empid]
       alias: rolesforpersonnel
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -1060,7 +1092,7 @@ models:
           - unique
   - name: stg_ruletagstorules
     config:
-      unique_key: ['ruleid', 'tagid']
+      unique_key: [ruleid, tagid]
       alias: ruletagstorules
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -1101,12 +1133,13 @@ models:
           - unique
   - name: stg_schedview
     config:
-      unique_key: schedviewid
+      unique_key: [schedtypename, schedviewid]
       alias: schedview
-    columns:
-      - name: schedviewid
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - schedtypename
+            - schedviewid
   - name: stg_schedviewdemandtargets
     config:
       unique_key: id
@@ -1149,12 +1182,13 @@ models:
           - unique
   - name: stg_switchboard_items
     config:
-      unique_key: itemnumber
+      unique_key: [itemnumber, switchboardid]
       alias: switchboard_items
-    columns:
-      - name: itemnumber
-        tests:
-          - unique
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - itemnumber
+            - switchboardid
   - name: stg_systemparameters
     config:
       unique_key: id
