@@ -8,7 +8,7 @@ lb_prisma:
       user: "{{ env_var('DBT_USER') }}"
       password: "{{ env_var('DBT_ENV_SECRET_PASSWORD') }}"
 
-      warehouse: "{{ env_var('DBT_LB_WAREHOUSE') }}}"
+      warehouse: DBT_LB_WH
       role: "{{ env_var('DBT_ROLE') }}"
       database: Metadata
       schema: Public
