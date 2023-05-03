@@ -10,7 +10,7 @@ if __name__ == "__main__":
             "dagster-dbt",
             "dagster-snowflake",
             "dbt-core",
-            "dbt-snowflake"
+            "dbt-snowflake",
             "pandas",
             "matplotlib",
         ],
