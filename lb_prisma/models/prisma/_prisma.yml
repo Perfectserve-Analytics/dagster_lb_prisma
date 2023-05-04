@@ -31,7 +31,7 @@ models:
       alias: assignmentdetails
   - name: prisma_assignmentlist
     config:
-      unique_key: id
+      unique_key: [id, schedtypename, schedviewid]
       alias: assignmentlist
   - name: prisma_assignments
     config:
@@ -95,11 +95,11 @@ models:
       alias: billing_licenses
   - name: prisma_billing_licenses_external_ids
     config:
-      unique_key: ['billing_license_id', 'external_id']
+      unique_key: [billing_license_id, external_id]
       alias: billing_licenses_external_ids
   - name: prisma_cachedtallycounts
     config:
-      unique_key: enddate
+      unique_key: [begindate, tallyid, empid, templatename, enddate]
       alias: cachedtallycounts
   - name: prisma_clientdata
     config:
@@ -115,11 +115,11 @@ models:
       alias: costcenter
   - name: prisma_datesforcontexts
     config:
-      unique_key: contextid
+      unique_key: [contextid, date]
       alias: datesforcontexts
   - name: prisma_datesforholidays
     config:
-      unique_key: id
+      unique_key: [holidayid, id]
       alias: datesforholidays
   - name: prisma_demand_profiles
     config:
@@ -127,19 +127,19 @@ models:
       alias: demand_profiles
   - name: prisma_demand_profiles_assignments
     config:
-      unique_key: profile_id
+      unique_key: [assignment_id, profile_id]
       alias: demand_profiles_assignments
   - name: prisma_demand_profiles_empscheduled
     config:
-      unique_key: slot_date
+      unique_key: [empscheduled_id, slot_date]
       alias: demand_profiles_empscheduled
   - name: prisma_demand_profiles_personnel
     config:
-      unique_key: profile_id
+      unique_key: [personnel_id, profile_id, stack_order]
       alias: demand_profiles_personnel
   - name: prisma_demand_profiles_profile_items
     config:
-      unique_key: profile_item_id
+      unique_key: [profile_id, profile_item_id, start_time]
       alias: demand_profiles_profile_items
   - name: prisma_demand_profiles_transactions
     config:
@@ -159,23 +159,23 @@ models:
       alias: demand_target_definitions
   - name: prisma_demand_target_definitions_assignments
     config:
-      unique_key: assignment_id
+      unique_key: [assignment_id, target_definition_id]
       alias: demand_target_definitions_assignments
   - name: prisma_demand_target_definitions_personnel
     config:
-      unique_key: target_definition_id
+      unique_key: [personnel_id, target_definition_id]
       alias: demand_target_definitions_personnel
   - name: prisma_demand_target_definitions_priorities
     config:
-      unique_key: template_id
+      unique_key: [target_definition_id, template_id]
       alias: demand_target_definitions_priorities
   - name: prisma_demand_target_definitions_profile_items
     config:
-      unique_key: profile_item_id
+      unique_key: [profile_item_id, target_definition_id]
       alias: demand_target_definitions_profile_items
   - name: prisma_demand_target_definitions_projections
     config:
-      unique_key: target_definition_id
+      unique_key: [target_date, target_definition_id, template_id]
       alias: demand_target_definitions_projections
   - name: prisma_denialreasonassignmenttypes
     config:
@@ -191,7 +191,7 @@ models:
       alias: department
   - name: prisma_dtproperties
     config:
-      unique_key: property
+      unique_key: [id, property]
       alias: dtproperties
   - name: prisma_emprequest
     config:
@@ -199,7 +199,7 @@ models:
       alias: emprequest
   - name: prisma_emprequesttarget
     config:
-      unique_key: assignstructureid
+      unique_key: [schedtypename, assignstructureid]
       alias: emprequesttarget
   - name: prisma_emprequestwindow
     config:
@@ -211,7 +211,7 @@ models:
       alias: empscheduled
   - name: prisma_exclusivity
     config:
-      unique_key: id
+      unique_key: [assignid_A, assignid_B]
       alias: exclusivity
   - name: prisma_exclusivityexceptions
     config:
@@ -231,7 +231,7 @@ models:
       alias: flyway_schema_history
   - name: prisma_groupedassignment
     config:
-      unique_key: ['assignid', 'assigngroupid']
+      unique_key: [assigngroupid, assignid]
       alias: groupedassignment
   - name: prisma_groups
     config:
@@ -239,11 +239,11 @@ models:
       alias: groups
   - name: prisma_groupstopersonnel
     config:
-      unique_key: ['empid', 'groupid']
+      unique_key: [empid, groupid]
       alias: groupstopersonnel
   - name: prisma_groupstoroles
     config:
-      unique_key: groupid
+      unique_key: [groupid, assignid]
       alias: groupstoroles
   - name: prisma_hashedassignmentgroups
     config:
@@ -383,7 +383,7 @@ models:
       alias: numbers
   - name: prisma_parameters
     config:
-      unique_key: ['deptid', 'name']
+      unique_key: [deptid, name]
       alias: parameters
   - name: prisma_pendingslotdata
     config:
@@ -395,7 +395,7 @@ models:
       alias: personaactions
   - name: prisma_personaanalyticsdept
     config:
-      unique_key: dept_id
+      unique_key: [dept_id, persona_id]
       alias: personaanalyticsdept
   - name: prisma_personadepartmentlevels
     config:
@@ -423,11 +423,11 @@ models:
       alias: personaelements
   - name: prisma_personalviewfilterassignments
     config:
-      unique_key: ['personalviewfilterid', 'excludedassignmentname']
+      unique_key: [excludedassignmentname, personalviewfilterid]
       alias: personalviewfilterassignments
   - name: prisma_personalviewfilterpersonnel
     config:
-      unique_key: ['personalviewfilterid', 'excludedpersonnelid']
+      unique_key: [excludedpersonnelid, personalviewfilterid]
       alias: personalviewfilterpersonnel
   - name: prisma_personalviewfilters
     config:
@@ -435,7 +435,7 @@ models:
       alias: personalviewfilters
   - name: prisma_personareports
     config:
-      unique_key: ['persona_id', 'report_id']
+      unique_key: [persona_id, report_id]
       alias: personareports
   - name: prisma_personas
     config:
@@ -451,11 +451,11 @@ models:
       alias: personatemplates
   - name: prisma_persona_administration_dept
     config:
-      unique_key: dept_id
+      unique_key: [persona_id, dept_id]
       alias: persona_administration_dept
   - name: prisma_persona_locator_reports
     config:
-      unique_key: persona_id
+      unique_key: [locator_report_id, persona_id]
       alias: persona_locator_reports
   - name: prisma_personnel
     config:
@@ -463,7 +463,7 @@ models:
       alias: personnel
   - name: prisma_personnellist
     config:
-      unique_key: id
+      unique_key: [id, schedtypename, schedviewid]
       alias: personnellist
   - name: prisma_personneltypes
     config:
@@ -495,11 +495,11 @@ models:
       alias: professions
   - name: prisma_reportpersonnellist
     config:
-      unique_key: ['empid', 'reportviewid']
+      unique_key: [empid, reportviewid, schedtypename]
       alias: reportpersonnellist
   - name: prisma_reporttallylist
     config:
-      unique_key: tallyid
+      unique_key: [reportviewid, schedtypename, tallyid]
       alias: reporttallylist
   - name: prisma_reportviews
     config:
@@ -511,7 +511,7 @@ models:
       alias: requirements
   - name: prisma_rolesforpersonnel
     config:
-      unique_key: ['assignid', 'empid']
+      unique_key: [assignid, empid]
       alias: rolesforpersonnel
   - name: prisma_rulehistory
     config:
@@ -527,7 +527,7 @@ models:
       alias: ruletags
   - name: prisma_ruletagstorules
     config:
-      unique_key: ruleid
+      unique_key: [ruleid, tagid]
       alias: ruletagstorules
   - name: prisma_saved_locator_reports
     config:
@@ -547,7 +547,7 @@ models:
       alias: scheduletypes
   - name: prisma_schedview
     config:
-      unique_key: schedviewid
+      unique_key: [schedtypename, schedviewid]
       alias: schedview
   - name: prisma_schedviewdemandtargets
     config:
@@ -571,7 +571,7 @@ models:
       alias: survey_responses
   - name: prisma_switchboard_items
     config:
-      unique_key: itemnumber
+      unique_key: [itemnumber, switchboardid]
       alias: switchboard_items
   - name: prisma_systemparameters
     config:
