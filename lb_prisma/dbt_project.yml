@@ -16,9 +16,7 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 target-path: "target"  
-clean-targets:         
-  - "target"
-  - "dbt_packages"
+clean-targets: ["target"]
 
 # ==================
 # Model Configs
@@ -27,11 +25,11 @@ models:
   +materialized: incremental
   lb_prisma:
     staging:
-      +database: lb_prod
-      +schema: lb_prismahealth
+      database: lb_prod
+      schema: lb_prismahealth
     prisma:
-      +database: data_sharing_prod
-      +schema: prisma_lb_public
+      database: data_sharing_prod
+      schema: prisma_lb_public
 
 # ==================
 # Model Tests

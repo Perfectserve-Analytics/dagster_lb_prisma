@@ -1,0 +1,14 @@
+[0m13:24:07.292369 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107661990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4ba00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4b7f0>]}
+
+
+============================== 13:24:07.295175 | 4bdf4294-e7e3-4fa4-bf55-514d86811fef ==============================
+[0m13:24:07.295175 [info ] [MainThread]: Running with dbt=1.5.0
+[0m13:24:07.298931 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'log_path': 'logs', 'use_colors': 'True', 'quiet': 'False', 'use_experimental_parser': 'False', 'profiles_dir': './lb_prisma/config/', 'no_print': 'None', 'warn_error': 'None', 'debug': 'False', 'log_format': 'default', 'write_json': 'True', 'version_check': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'introspect': 'True', 'fail_fast': 'False'}
+[0m13:24:07.299429 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/perfectserve/github/dbt-projects/dagster_lb_prisma/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m13:24:07.299930 [debug] [MainThread]: Command `dbt build` failed at 13:24:07.299825 after 0.03 seconds
+[0m13:24:07.300137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107661990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4bbe0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c4bf70>]}
+[0m13:24:07.300342 [debug] [MainThread]: Flushing usage events

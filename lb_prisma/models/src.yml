@@ -60,7 +60,6 @@ sources:
       - name: exclusivity
       - name: exclusivityexceptions
       - name: features
-      - name: fivetran_audit
       - name: flyway_schema_history
       - name: groupedassignment
       - name: groups
