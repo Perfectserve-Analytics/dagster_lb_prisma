@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'batchtorulemapping') }}
+from {{ source('lb_prismahealth_dbo', 'batchtorulemapping') }}
 
 {% if is_incremental() %}
 

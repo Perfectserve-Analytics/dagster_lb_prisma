@@ -17,7 +17,7 @@ select
     ,_FIVETRAN_DELETED   AS _FIVETRAN_DELETED
     ,_FIVETRAN_SYNCED    AS _FIVETRAN_SYNCED
 
-from {{ source('prisma', 'holidays') }}
+from {{ source('lb_prismahealth_dbo', 'holidays') }}
 
 {% if is_incremental() %}
 

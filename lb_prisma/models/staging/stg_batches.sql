@@ -8,7 +8,7 @@ select
     ,_FIVETRAN_DELETED   AS _FIVETRAN_DELETED
     ,_FIVETRAN_SYNCED    AS _FIVETRAN_SYNCED
 
-from {{ source('prisma', 'batches') }}
+from {{ source('lb_prismahealth_dbo', 'batches') }}
 
 {% if is_incremental() %}
 

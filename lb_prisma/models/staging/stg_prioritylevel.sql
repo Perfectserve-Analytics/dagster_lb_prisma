@@ -11,7 +11,7 @@ select
     ,_FIVETRAN_DELETED   AS _FIVETRAN_DELETED
     ,_FIVETRAN_SYNCED    AS _FIVETRAN_SYNCED
 
-from {{ source('prisma', 'prioritylevel') }}
+from {{ source('lb_prismahealth_dbo', 'prioritylevel') }}
 
 {% if is_incremental() %}
 

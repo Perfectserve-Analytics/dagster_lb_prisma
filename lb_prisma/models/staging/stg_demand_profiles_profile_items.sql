@@ -7,7 +7,7 @@ select
     ,_FIVETRAN_DELETED   AS _FIVETRAN_DELETED
     ,_FIVETRAN_SYNCED    AS _FIVETRAN_SYNCED
 
-from {{ source('prisma', 'demand_profiles_profile_items') }}
+from {{ source('lb_prismahealth_dbo', 'demand_profiles_profile_items') }}
 
 {% if is_incremental() %}
 

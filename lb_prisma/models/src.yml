@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: prisma
+  - name: lb_prismahealth_dbo
     database: production_fivetran
     schema: lb_prismahealth_dbo
     tables:

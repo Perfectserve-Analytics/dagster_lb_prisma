@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'batchtopersonnelmapping') }}
+from {{ source('lb_prismahealth_dbo', 'batchtopersonnelmapping') }}
 
 {% if is_incremental() %}
 

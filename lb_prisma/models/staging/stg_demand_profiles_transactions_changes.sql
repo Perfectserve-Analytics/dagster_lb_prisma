@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'demand_profiles_transactions_changes') }}
+from {{ source('lb_prismahealth_dbo', 'demand_profiles_transactions_changes') }}
 
 {% if is_incremental() %}
 

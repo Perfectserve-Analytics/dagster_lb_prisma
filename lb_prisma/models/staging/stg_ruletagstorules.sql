@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'ruletagstorules') }}
+from {{ source('lb_prismahealth_dbo', 'ruletagstorules') }}
 
 {% if is_incremental() %}
 

@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'lblitefilterpersonnel') }}
+from {{ source('lb_prismahealth_dbo', 'lblitefilterpersonnel') }}
 
 {% if is_incremental() %}
 

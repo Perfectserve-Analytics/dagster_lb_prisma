@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'mappedassignmentstructures') }}
+from {{ source('lb_prismahealth_dbo', 'mappedassignmentstructures') }}
 
 {% if is_incremental() %}
 

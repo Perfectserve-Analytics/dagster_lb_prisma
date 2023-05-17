@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'datesforholidays') }}
+from {{ source('lb_prismahealth_dbo', 'datesforholidays') }}
 
 {% if is_incremental() %}
 

@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'billing_licenses_external_ids') }}
+from {{ source('lb_prismahealth_dbo', 'billing_licenses_external_ids') }}
 
 {% if is_incremental() %}
 

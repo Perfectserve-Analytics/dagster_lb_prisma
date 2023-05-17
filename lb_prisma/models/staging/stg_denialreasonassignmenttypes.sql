@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'denialreasonassignmenttypes') }}
+from {{ source('lb_prismahealth_dbo', 'denialreasonassignmenttypes') }}
 
 {% if is_incremental() %}
 

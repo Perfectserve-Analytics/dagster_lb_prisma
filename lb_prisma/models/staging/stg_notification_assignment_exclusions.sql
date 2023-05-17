@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'notification_assignment_exclusions') }}
+from {{ source('lb_prismahealth_dbo', 'notification_assignment_exclusions') }}
 
 {% if is_incremental() %}
 

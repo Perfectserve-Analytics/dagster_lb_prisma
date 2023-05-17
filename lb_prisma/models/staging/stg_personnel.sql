@@ -61,7 +61,7 @@ select
     ,NOTIFICATION_EMAIL              AS NOTIFICATION_EMAIL
     ,NATIONAL_PROVIDER_IDENTIFIER    AS NATIONAL_PROVIDER_IDENTIFIER
 
-from {{ source('prisma', 'personnel') }}
+from {{ source('lb_prismahealth_dbo', 'personnel') }}
 
 {% if is_incremental() %}
 

@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'switchboard_items') }}
+from {{ source('lb_prismahealth_dbo', 'switchboard_items') }}
 
 {% if is_incremental() %}
 

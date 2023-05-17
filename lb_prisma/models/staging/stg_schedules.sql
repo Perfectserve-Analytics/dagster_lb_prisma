@@ -19,7 +19,7 @@ select
     ,_FIVETRAN_DELETED   AS _FIVETRAN_DELETED
     ,_FIVETRAN_SYNCED    AS _FIVETRAN_SYNCED
 
-from {{ source('prisma', 'schedules') }}
+from {{ source('lb_prismahealth_dbo', 'schedules') }}
 
 {% if is_incremental() %}
 

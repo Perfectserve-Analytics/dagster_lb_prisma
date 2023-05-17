@@ -665,6 +665,9 @@ models:
       - name: id
         tests:
           - unique
+      - name: deptid
+        tests:
+          - not_null
   - name: stg_notification_assignment_exclusions
     config:
       unique_key: id
@@ -710,11 +713,11 @@ models:
           - unique
   - name: stg_personaanalyticsdept
     config:
-      unique_key: [dept_id, persona_id]
+      unique_key: [deptid, persona_id]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - dept_id
+            - deptid
             - persona_id
   - name: stg_personadepartmentlevels
     config:
@@ -812,12 +815,12 @@ models:
           - unique
   - name: stg_persona_administration_dept
     config:
-      unique_key: [persona_id, dept_id]
+      unique_key: [persona_id, deptid]
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - persona_id
-            - dept_id
+            - deptid
   - name: stg_persona_locator_reports
     config:
       unique_key: [locator_report_id, persona_id]

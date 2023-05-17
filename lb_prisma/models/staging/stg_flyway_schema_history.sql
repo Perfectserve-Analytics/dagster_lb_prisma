@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'flyway_schema_history') }}
+from {{ source('lb_prismahealth_dbo', 'flyway_schema_history') }}
 
 {% if is_incremental() %}
 

@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'lblite_meta_attribute_value') }}
+from {{ source('lb_prismahealth_dbo', 'lblite_meta_attribute_value') }}
 
 {% if is_incremental() %}
 

@@ -20,7 +20,7 @@ select
     ,_FIVETRAN_SYNCED                AS _FIVETRAN_SYNCED
     ,CALL_ORDER                      AS CALL_ORDER
 
-from {{ source('prisma', 'assignments') }}
+from {{ source('lb_prismahealth_dbo', 'assignments') }}
 
 {% if is_incremental() %}
 

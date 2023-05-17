@@ -1,6 +1,6 @@
 select *
 
-from {{ source('prisma', 'tally_override_by_slot') }}
+from {{ source('lb_prismahealth_dbo', 'tally_override_by_slot') }}
 
 {% if is_incremental() %}
 
