@@ -484,3 +484,7 @@ models:
   - name: prisma_ytriggers
     config:
       unique_key: id
+
+  - name: prisma_schedulechangelogs
+    config:
+      unique_key: id

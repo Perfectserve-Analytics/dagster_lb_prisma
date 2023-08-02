@@ -168,3 +168,9 @@ sources:
       - name: yconditionals
       - name: yrules
       - name: ytriggers
+
+  - name: lb_legacy_dbtemp_1_lblogs_dbo
+    database: production_fivetran
+    schema: lb_legacy_dbtemp_1_lblogs_dbo
+    tables:
+      - name: schedulechangelogs
